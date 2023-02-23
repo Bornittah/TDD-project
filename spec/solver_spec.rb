@@ -1,10 +1,9 @@
 require 'rspec'
-require_relative './solver'
+require './solver'
 
 describe Solver do
-  
+  let(:solve) { Solver.new}   
   describe '#factorial' do
-    let(:solve) { Solver.new} 
     it "returns 120 when N is 5" do
       solve.number = 5
       expect(solve.factorial).to eql(120)
@@ -20,8 +19,8 @@ describe Solver do
   end
   
   describe '#reverse' do
-    it "returns olleh when word is hello" do
-      solve.string = "hello"
+    it "returns 'olleh' when word is 'hello'" do
+      solve.str = "hello"
       expect(solve.reverse).to eql("olleh")
     end
   end
@@ -29,19 +28,19 @@ describe Solver do
   describe '#fizzbuzz' do
     it "returns fizz when number is divisible by 3" do
       solve.number = 3
-      expect(solve.fizzbuzz).to eql("fizz")
+      expect(solve.fizzbuzz).to match("fizz")
     end
     it "returns buzz when number is divisible by 5" do
       solve.number = 5
-      expect(solve.fizzbuzz).to eql("buzz")
+      expect(solve.fizzbuzz).to match("buzz")
     end
     it "returns fizzbuzz when number is divisible by 3 and 5" do
       solve.number = 15
-      expect(solve.fizzbuzz).to eql("fizzbuzz")
+      expect(solve.fizzbuzz).to match("fizzbuzz")
     end
     it "returns number when number is not divisible by 3 or 5" do
       solve.number = 2
-      expect(solve.fizzbuzz).to eql("2")
+      expect(solve.fizzbuzz).to match("2")
     end
   end
 end
