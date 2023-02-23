@@ -14,12 +14,12 @@ describe Solver do
     end
     it 'raise exception when N < 0' do
       solve.number = -1
-      expect(solve.factorial).to raise_exception
+      expect{solve.factorial}.to raise_exception("Number must be non-negative")
     end
   end
   
   describe '#reverse' do
-    it 'returns 'olleh' when word is 'hello'' do
+    it "returns 'olleh' when word is 'hello'" do
       solve.str = 'hello'
       expect(solve.reverse).to eql('olleh')
     end

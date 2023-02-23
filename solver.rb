@@ -1,6 +1,8 @@
 class Solver
-  def factorial(num)
-    raise ArgumentError, "Number must be non-negative" if n < 0
+  attr_accessor :number, :str
+  def factorial
+    num = @number
+    raise ArgumentError, "Number must be non-negative" if num < 0
     
     result = 1
     (1..num).each do |i|
@@ -10,12 +12,13 @@ class Solver
     result
   end
 
-  def reverse(word)
-    word.reverse
+  def reverse
+    @str.reverse
   end
   
 
-  def fizzbuzz(num)
+  def fizzbuzz
+     num = @number
     if num % 3 == 0 && num % 5 == 0
       "fizzbuzz"
     elsif num % 3 == 0
@@ -26,3 +29,4 @@ class Solver
       num.to_s
     end
   end
+end
